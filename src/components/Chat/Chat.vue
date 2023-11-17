@@ -18,8 +18,30 @@
         }
     });
 
-    const sendMessage = () => {
-        allMessages.data.push({ text: message.value, user: "Me" });
+ const sendMessage = async  () => {
+        //allMessages.data.push({ text: message.value, user: "Me" });
+
+        const newMessage = { text: message.value, user: 'Me' };
+
+        try {
+            const response = await fetch('https://lab5-p379.onrender.com/api/v1/messages/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+        },
+      body: JSON.stringify(newMessage),
+    });
+
+    if (response.ok) {
+      allMessages.data.unshift(newMessage);
+    } else {
+      console.error('Failed to post message to the API');
+    }
+    } catch (error) {
+        console.error('Error posting message:', error);
+    }
+
+
         message.value = "";
     }
 
