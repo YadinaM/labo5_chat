@@ -7,8 +7,19 @@
         data: [],
     });
 
+
+    onMounted(async () => {
+        try {
+            const response = await fetch("https://lab5-p379.onrender.com/api/v1/messages/");
+            const data = await response.json();
+            allMessages.data = data.slice(-10);
+        } catch (error) {
+            console.error("Error fetching data:", error);
+        }
+    });
+
     const sendMessage = () => {
-        allMessages.data.push({ text: message.value, user: user.value });
+        allMessages.data.push({ text: message.value, user: "Me" });
         message.value = "";
     }
 
@@ -17,7 +28,9 @@
 <template>
   <div>
       <ul>
-          <li v-for="m in allMessages.data" >{{ m }}</li>  <!--zoals foreach bij php-->
+        <li v-for="m in allMessages.data" :key="m.id">
+                {{ m.user }}: {{ m.text }}
+        </li>      
       </ul>
 
       <div>
