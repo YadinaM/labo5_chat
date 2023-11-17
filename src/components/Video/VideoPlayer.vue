@@ -7,7 +7,7 @@ let videoUrl = ref("");
 let videos = reactive({
     data: [],
 }) //reflective wnt is complexer dn een string
-/*
+
 onMounted(() => {
     fetch("https://api.jsonbin.io/v3/b/6548ef9954105e766fcc2c15")
     .then((response) => response.json())
@@ -17,7 +17,7 @@ onMounted(() => {
 
         emit("update:videoDescription", videos.data[0].description);
     })
-})*/
+})
 
 </script>
 

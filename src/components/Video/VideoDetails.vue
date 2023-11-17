@@ -11,5 +11,7 @@
 </template>
 
 <style scoped> /* scoped is enkel over deze pagina, je moet dus niet met classes sukkelen <div></div> */
-
+    div{
+        color: white
+    }
 </style>

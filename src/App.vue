@@ -17,7 +17,7 @@ const updateVideo = (description) => {
     <div>
       <VideoPlayer @update:video-description="updateVideo" />
     </div>
-    <div>
+    <div class="info">
       <VideoDetails :description = "newDescription" />
       <Chat />
     </div>
@@ -28,5 +28,9 @@ const updateVideo = (description) => {
   .tiktok{
     display: grid;
     grid-template-columns: 1fr 1fr;
+    background-color: black;
+  }
+  .info{
+    margin-left: 1em;
   }
 </style>

@@ -51,7 +51,8 @@
   <div>
       <ul>
         <li v-for="m in allMessages.data" :key="m.id">
-                {{ m.user }}: {{ m.text }}
+            <div class="user">{{ m.user }}</div>
+            <div class="text">{{ m.text }}</div>        
         </li>      
       </ul>
 
@@ -63,5 +64,16 @@
 </template>
 
 <style scoped> /* scoped is enkel over deze pagina, je moet dus niet met classes sukkelen */
-
+    ul{
+        list-style: none;
+        margin-left: -2.5em;
+        width: 400px;
+    }
+    li{
+        background-color: black;
+        color: white;
+        padding-left: 1em;
+        padding-top: 1em;
+        padding-bottom: 1em;
+    }
 </style>
